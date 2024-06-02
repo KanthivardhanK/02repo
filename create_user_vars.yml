@@ -1,0 +1,12 @@
+---
+- name: playbook 02
+  hosts: all
+  become: yes
+  vars:
+    pkg: git
+  tasks:
+  - name: installing package {{pkg}}
+    yum:
+      name: '{{pkg}}'
+      state: installed
+

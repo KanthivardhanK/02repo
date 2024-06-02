@@ -1,0 +1,24 @@
+---
+- name: myplaybook
+  hosts: all
+  become: yes
+  tasks:
+  - name: installing httpd
+    yum:
+      name: httpd
+      state: present
+    notify: starting httpd service
+  - name: installing docker
+    yum:
+      name: docker
+      state: installed
+    notify: starting docker service
+  handlers:
+  - name: starting httpd service
+    service:
+      name: httpd
+      state: started
+  - name: starting docker service
+    service:
+      name: docker
+      state: started

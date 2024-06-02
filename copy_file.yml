@@ -1,0 +1,9 @@
+---
+- name: my playbook
+  hosts: all
+  become: yes
+  tasks:
+  - name: copyting file to nodes
+    copy:
+      src: /home/ansadmin/index.html
+      dest: /home/ansadmin/index.html

@@ -1,0 +1,9 @@
+---
+- name: playbook 48
+  hosts: all
+  become: yes
+  tasks:
+  - name: installing packages
+    yum:
+      name: ['git','make','gcc','wget','telnet','tree','which','docker']
+      state: installed
